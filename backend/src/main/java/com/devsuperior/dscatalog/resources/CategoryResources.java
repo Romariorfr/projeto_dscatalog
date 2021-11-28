@@ -34,7 +34,7 @@ public class CategoryResources {
 			@RequestParam(value = "orderBy", defaultValue = "name") String orderBy,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction) {
 
-		PageRequest pageRequest = PageRequest.of(page,linesPerPage, Direction.valueOf(direction), orderBy);
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 
 		Page<CategoryDTO> list = service.findAllPaged(pageRequest);
 		return ResponseEntity.ok().body(list);
