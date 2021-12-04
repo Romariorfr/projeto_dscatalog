@@ -24,6 +24,10 @@ dados de auditoria e paginação de dados. Aprender também a trabalhar com a fe
 - JPA / Hibernate
 - Maven
 
+
+# Como rodar a aplicação na sua maquina
+
+
 ```bash
 # clonar repositório
 git clone https://github.com/Romariorfr/dscatalog-devsuperior-aula
@@ -33,6 +37,92 @@ cd backend
 
 # executar o projeto
 ./mvnw spring-boot:run
+```
+
+
+# Testes manuais no postman
+## Requisições da classe Category
+
+```bash
+#Busca paginada de categorias
+GET http://localhost:8080/categories?orderBy=id&page=0&linesPerPage=10
+
+#Busca de categorias por id
+GET http://localhost:8080/categories/1
+
+#Inserir nova categoria
+POST http://localhost:8080/categories
+
+POST /clients
+{
+    "name" : "Garden"
+}
+
+#Atualizar uma categoria
+PUT http://localhost:8080/categories/1
+
+{
+    "name" : "new name"
+}
+
+#Deletar uma categoria
+DELETE http://localhost:8080/categories/1
+
+```
+
+
+## Requisições da classe Product
+
+```bash
+#Busca paginada de produtos
+GET http://localhost:8080/products?orderBy=id&page=1&linesPerPage=10
+
+#Busca de Produtos por id
+GET http://localhost:8080/products/1
+
+#Inserir novo produto
+POST http://localhost:8080/products 
+
+{
+  "date": "2020-07-20T10:00:00Z",
+  "description": "The new generation PS5 video game",
+  "name": "PS5",
+  "imgUrl": "",
+  "price": 600.0,
+  "categories": [
+    {
+      "id": 1
+    },
+    {
+      "id": 3
+    }
+  ]
+}
+
+
+#Atualizar um produto
+PUT http://localhost:8080/products/1
+
+{
+  "date": "2020-07-20T10:00:00Z",
+  "description": "Updated product description",
+  "name": "Updated product name",
+  "imgUrl": "",
+  "price": 600.0,
+  "categories": [
+    {
+      "id": 1
+    },
+    {
+      "id": 3
+    }
+  ]
+}
+
+
+#Deletar um produto
+DELETE http://localhost:8080/products/1
+
 ```
 
 # Autor
