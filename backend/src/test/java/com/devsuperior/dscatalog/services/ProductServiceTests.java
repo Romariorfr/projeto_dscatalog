@@ -1,7 +1,5 @@
 package com.devsuperior.dscatalog.services;
 
-import static org.mockito.Mockito.mockitoSession;
-
 import java.util.List;
 import java.util.Optional;
 
