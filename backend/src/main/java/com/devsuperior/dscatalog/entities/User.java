@@ -5,26 +5,44 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String firstName;
-	private String lastname;
+	private String lastName;
+	private String email;
 	private String password;
 
+	@ManyToMany
+	@JoinTable(name = "tb_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> Roles = new HashSet<>();
 
 	public User() {
 
 	}
 
-	public User(Long id, String firstName, String lastname, String password) {
+	public User(Long id, String firstName, String lastName, String email, String password, Set<Role> roles) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
-		this.lastname = lastname;
+		this.lastName = lastName;
+		this.email = email;
 		this.password = password;
+		Roles = roles;
 	}
 
 	public Long getId() {
@@ -44,15 +62,35 @@ public class User implements Serializable {
 	}
 
 	public String getLastname() {
-		return lastname;
+		return lastName;
 	}
 
 	public void setLastname(String lastname) {
-		this.lastname = lastname;
+		this.lastName = lastname;
 	}
 
 	public String getPassword() {
 		return password;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		Roles = roles;
 	}
 
 	public void setPassword(String password) {
