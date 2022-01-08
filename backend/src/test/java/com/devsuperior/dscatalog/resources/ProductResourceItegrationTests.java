@@ -48,6 +48,8 @@ public class ProductResourceItegrationTests {
 		ResultActions result = mockMvc.perform(get("/products?page=0&size=12&sort=name,asc", existingId)
 				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON));
 
+	
+
 		result.andExpect(status().isOk());
 		result.andExpect(jsonPath("$.totalElements").value(countTotalProducts));
 		result.andExpect(jsonPath("$.content").exists());
