@@ -13,14 +13,13 @@ public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	
+
 	@NotBlank(message = "Campo obrigatório")
 	private String firstName;
 	private String lastName;
-	
+
 	@NotBlank(message = "Favor entrar com um email válido")
 	private String email;
-	private String password;
 
 	private Set<RoleDTO> roles = new HashSet<>();
 
@@ -75,14 +74,6 @@ public class UserDTO implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	@Override
