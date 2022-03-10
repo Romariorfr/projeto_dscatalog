@@ -3,13 +3,13 @@
 
 ## Sobre o projeto:
 
-DScatalog é um projeto backend web contruido durante as aulas do primeiro modulo do bootcamp spring react 3.0, evento organizado pela [DevSuperior](https://devsuperior.com.br "Site da DevSuperior").
+DScatalog é um projeto backend web contruido e aprimorado ao longo do bootcamp spring react 3.0, evento organizado pela [DevSuperior](https://devsuperior.com.br "Site da DevSuperior").
 
-O projeto consiste na criação completa de um crud (Create, Read, Update, Delete) de produtos e categorias
+O projeto consiste na criação completa de um crud (Create, Read, Update, Delete) de produtos e categorias, usuario e funções.
 
 ## Modelo conceitual do projeto:
 
-![Web 1](https://github.com/Romariorfr/dscatalog-devsuperior-aula/blob/master/backend/assets/modelo-conceitual-dscatalog.jpg)
+![Web 1](https://github.com/Romariorfr/dscatalog-devsuperior-aula/blob/master/backend/assets/modeloConceitual.jpg)
 
 
 ## Proposta do projeto:
