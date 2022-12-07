@@ -1,11 +1,12 @@
 import Navbar from 'components/Navbar';
+import ProductCard from 'components/ProductCard';
 
 const Catalog = () => {
   return (
     <>
       <Navbar />
       <div className="my-4 container">
-        <h1>tela catalog</h1>
+        <ProductCard/>
       </div>
     </>
   );
