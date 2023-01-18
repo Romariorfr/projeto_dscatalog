@@ -1,11 +1,11 @@
 import './assets/styles/custom.scss';
 import './App.css';
-import Catalog from 'pages/Home/Catalog';
+import Rotas from 'Rotas';
 
 const App = () => {
   return (
     <>
-      <Catalog/>
+      <Rotas />
     </>
   );
 };
