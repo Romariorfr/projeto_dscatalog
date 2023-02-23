@@ -1,19 +1,16 @@
 .product-details-container {
   padding: 10px;
   font-size: 24px;
-  border: 1px solid red;
 }
 
 .product-details-card {
   padding: 10px;
-  border: 1px solid red;
 }
 
 .goback-contianer {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  border: 1px solid red;
 }
 
 .goback-contianer svg {
@@ -33,8 +30,6 @@
 .img-container {
   text-align: center;
   margin-bottom: 20px;
-
-  border: 1px solid red;
 }
 
 .img-container img {
@@ -43,7 +38,6 @@
 
 .name-price-container {
   margin-bottom: 20px;
-  border: 1px solid red;
 }
 
 .name-price-container h1 {
@@ -53,7 +47,6 @@
 }
 
 .description-container {
-  border: 1px solid red;
 }
 
 .description-container h2 {

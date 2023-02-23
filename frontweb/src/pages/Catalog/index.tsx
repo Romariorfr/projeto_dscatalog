@@ -1,6 +1,7 @@
 import ProductCard from 'components/ProductCard';
 import { Product } from 'types/product';
 import { Link } from 'react-router-dom';
+import './styles.css';
 
 const Catalog = () => {
   const product: Product = {
@@ -25,7 +26,10 @@ const Catalog = () => {
   };
 
   return (
-    <div className="my-4 container">
+    <div className="my-4 container catalog-container">
+      <div className='row catalog-title-container'>
+        <h1>Catálogo de produtos</h1>
+      </div>
       <div className="row">
         <div className="col-sm-6 col-lg-4 col-xl-3">
           <Link to="/products/1">
