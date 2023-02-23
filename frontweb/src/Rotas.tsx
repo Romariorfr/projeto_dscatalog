@@ -2,7 +2,7 @@ import Navbar from 'components/Navbar';
 import Home from 'pages/Home';
 import Catalog from 'pages/Catalog';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Admin from 'pages/Home/Admin';
+import Admin from 'pages/Admin';
 import ProductDetails from 'pages/ProductDetails';
 
 const Rotas = () => {
