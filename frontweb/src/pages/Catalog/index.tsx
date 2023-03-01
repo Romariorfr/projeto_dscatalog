@@ -35,11 +35,15 @@ const Catalog = () => {
       </div>
 
       <div className="row">
-        <div className="col-sm-6 col-lg-4 col-xl-3">
-          <Link to="/products/1">
-            
-          </Link>
-        </div>
+        {page?.content.map((product) => {
+          return (
+            <div className="col-sm-6 col-lg-4 col-xl-3" key={product.id}>
+              <Link to="/products/1">
+                <ProductCard product={product} />
+              </Link>
+            </div>
+          );
+        })}
       </div>
 
       <div className="row">
