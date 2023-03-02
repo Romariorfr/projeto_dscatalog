@@ -7,9 +7,10 @@ import { SpringPage } from 'types/vendor/spring';
 import axios from 'axios';
 import { AxiosParams } from 'types/vendor/axios';
 import { BASE_URL } from 'util/request';
+import CardLoader from './CardLoader';
 
 import './styles.css';
-import CardLoader from './CardLoader';
+
 
 const Catalog = () => {
   const [isLoading, setIsloading] = useState(false);
@@ -44,7 +45,7 @@ const Catalog = () => {
         {isLoading ? (
           <CardLoader />
         ) : (
-          
+
           page?.content.map((product) => {
             return (
               <div className="col-sm-6 col-lg-4 col-xl-3" key={product.id}>
