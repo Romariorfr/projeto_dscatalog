@@ -4,6 +4,7 @@ import Catalog from 'pages/Catalog';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Admin from 'pages/Admin';
 import ProductDetails from 'pages/ProductDetails';
+import Auth from 'pages/Admin/Auth';
 
 const Rotas = () => {
   return (
@@ -18,6 +19,9 @@ const Rotas = () => {
         </Route>
         <Route path="/products/:productId">
           <ProductDetails />
+        </Route>
+        <Route path={'/admin/auth'}>
+          <Auth />
         </Route>
         <Redirect from="/admin" to="/admin/products" exact />
         <Route path="/admin">
