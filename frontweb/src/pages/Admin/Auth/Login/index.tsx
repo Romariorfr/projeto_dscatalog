@@ -4,8 +4,11 @@ import ButtonIcon from 'components/ButtonIcon';
 
 import './styles.css';
 import { requestBackendLogin } from 'util/request';
+import { useState } from 'react';
 
 const Login = () => {
+  const [hasError, setHasError] = useState(false);
+
   type FormData = {
     username: string;
     password: string;
@@ -16,9 +19,11 @@ const Login = () => {
   const onSubmit = (formData: FormData) => {
     requestBackendLogin(formData)
       .then((response) => {
+        setHasError(false);
         console.log('sucesso', response);
       })
       .catch((error) => {
+        setHasError(true);
         console.log('erro', error);
       });
   };
@@ -26,6 +31,11 @@ const Login = () => {
   return (
     <div className="base-card login-card">
       <h1>LOGIN</h1>
+      {hasError && (
+        <div className="alert alert-danger">
+          Erro ao tentar efetuar o login
+        </div>
+      )}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <input
