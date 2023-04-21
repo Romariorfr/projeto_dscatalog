@@ -43,6 +43,10 @@ const Login = () => {
           <input
             {...register('username', {
               required: 'Campo obrigatório',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'Email inválido',
+              },
             })}
             type="text"
             className="form-control base-input"
@@ -55,7 +59,9 @@ const Login = () => {
         </div>
         <div className="mb-2">
           <input
-            {...register('password', { required: 'Campo obrigatório' })}
+            {...register('password', {
+              required: 'Campo obrigatório',
+            })}
             type="password"
             className="form-control base-input "
             placeholder="Password"
