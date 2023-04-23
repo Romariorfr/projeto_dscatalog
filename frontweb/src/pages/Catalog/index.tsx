@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { SpringPage } from 'types/vendor/spring';
-import axios, { AxiosRequestConfig } from 'axios';
-import { BASE_URL } from 'util/request';
+import { AxiosRequestConfig } from 'axios';
+import { BASE_URL, requestBackend } from 'util/request';
 import CardLoader from './CardLoader';
 
 import './styles.css';
@@ -25,7 +25,7 @@ const Catalog = () => {
       },
     };
     setIsloading(true);
-    axios(params)
+    requestBackend(params)
       .then((response) => {
         setPage(response.data);
       })
