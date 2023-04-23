@@ -5,18 +5,18 @@ const Navbar = () => {
     <nav className="admin-nav-container">
       <ul>
         <li>
-          <a href="link" className='admin-nav-item active'>
+          <a href="/admin/products" className='admin-nav-item active'>
             <p>Produtos</p>
           </a>
         </li>
         <li>
-          <a href="link" className='admin-nav-item'>
+          <a href="/admin/categories" className='admin-nav-item'>
             <p>Categorias</p>
           </a>
         </li>
         <li>
-          <a href="link" className='admin-nav-item'>
-            <p>Usuários</p>
+          <a href="/admin/users" className='admin-nav-item'>
+            <p>Usuários</p> 
           </a>
         </li>
       </ul>
