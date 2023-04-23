@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import ButtonIcon from 'components/ButtonIcon';
 
 import './styles.css';
-import { requestBackendLogin, saveAuthData } from 'util/request';
+import { getAuthData, requestBackendLogin, saveAuthData } from 'util/request';
 import { useState } from 'react';
 
 const Login = () => {
@@ -23,7 +23,9 @@ const Login = () => {
   const onSubmit = (formData: FormData) => {
     requestBackendLogin(formData)
       .then((response) => {
-        saveAuthData(response.data)
+        saveAuthData(response.data);
+        const token = getAuthData().access_token;
+        console.log('token gerado : ' + token);
         setHasError(false);
         console.log('sucesso', response);
       })
@@ -50,7 +52,9 @@ const Login = () => {
               },
             })}
             type="text"
-            className={`form-control base-input ${errors.username ? 'is-invalid': ''}`}
+            className={`form-control base-input ${
+              errors.username ? 'is-invalid' : ''
+            }`}
             placeholder="Email"
             name="username"
           />
@@ -64,7 +68,9 @@ const Login = () => {
               required: 'Campo obrigatório',
             })}
             type="password"
-            className={`form-control base-input ${errors.password ? 'is-invalid': ''}`}
+            className={`form-control base-input ${
+              errors.password ? 'is-invalid' : ''
+            }`}
             placeholder="Password"
             name="password"
           />
