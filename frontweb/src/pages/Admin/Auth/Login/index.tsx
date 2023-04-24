@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import ButtonIcon from 'components/ButtonIcon';
 
@@ -14,6 +14,8 @@ const Login = () => {
     password: string;
   };
 
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
@@ -28,6 +30,7 @@ const Login = () => {
         console.log('token gerado : ' + token);
         setHasError(false);
         console.log('sucesso', response);
+        history.push('/admin');
       })
       .catch((error) => {
         setHasError(true);
