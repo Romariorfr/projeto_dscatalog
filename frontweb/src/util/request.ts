@@ -44,7 +44,14 @@ export const requestBackendLogin = (loginData: LoginData) => {
 };
 
 export const requestBackend = (config: AxiosRequestConfig) => {
-  return axios({...config,baseURL:BASE_URL});
+  const headers = config.withCredentials
+    ? {
+        ...config.headers,
+        Authorization: 'Bearer' + getAuthData().access_token,
+      }
+    : config.headers;
+
+  return axios({ ...config, baseURL: BASE_URL, headers });
 };
 
 export const saveAuthData = (obj: LoginResponse) => {

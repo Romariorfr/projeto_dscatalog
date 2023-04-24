@@ -18,6 +18,7 @@ const Catalog = () => {
     const params: AxiosRequestConfig = {
       method: 'GET',
       url: '/products',
+
       params: {
         page: 0,
         size: 12,
