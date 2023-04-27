@@ -64,21 +64,25 @@ export const getAuthData = () => {
 };
 
 // Add a request interceptor
-axios.interceptors.request.use(function (config) {
-  // Do something before request is sent
-  return config;
-}, function (error) {
-  // Do something with request error
-  return Promise.reject(error);
-});
+axios.interceptors.request.use(
+  function (config) {
+    console.log("interceptor antes da requisição")
+    return config;
+  },
+  function (error) {
+    console.log("erro da requisição")
+    return Promise.reject(error);
+  }
+);
 
 // Add a response interceptor
-axios.interceptors.response.use(function (response) {
-  // Any status code that lie within the range of 2xx cause this function to trigger
-  // Do something with response data
-  return response;
-}, function (error) {
-  // Any status codes that falls outside the range of 2xx cause this function to trigger
-  // Do something with response error
-  return Promise.reject(error);
-});
+axios.interceptors.response.use(
+  function (response) {
+    console.log("interceptor resposta com sucesso")
+    return response;
+  },
+  function (error) {
+    console.log("interceptor resposta com erro")
+    return Promise.reject(error);
+  }
+);
