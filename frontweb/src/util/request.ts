@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
+import history from './history';
 
 type LoginResponse = {
   access_token: string;
@@ -82,7 +83,9 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
-    console.log("interceptor resposta com erro")
+    if(error.response.status === 401 || error.response.status === 403 ){
+      history.push('/admin/auth')
+    }
     return Promise.reject(error);
   }
 );
