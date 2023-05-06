@@ -1,10 +1,7 @@
-.main-nav{
-    min-height: 70px;
-    padding-left: 40px;
+.main-nav {
+  min-height: 70px;
+  padding-left: 40px;
 }
-
-
-
 
 .nav-logo-text,
 .nav-logo-text:hover {
@@ -26,7 +23,35 @@
   color: #fff;
 }
 
-.main-menu a.active{
-    color: #FFF;
-    font-weight: 700;
+.main-menu a.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+.nav-login-logout{
+  display: none;
+}
+
+.nav-user-name{
+  display: none;
+}
+
+@media (min-width: 768px){
+  .nav-login-logout{
+    display: unset;
+    color: #fff;
+    margin-right: 15px;
+  }
+}
+
+@media (min-width: 992px){
+  .nav-login-logout{
+    margin-right: 40px;
+  }
+
+  .nav-user-name{
+    display: unset;
+    margin-right: 20px;
+  }
+
 }
