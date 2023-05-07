@@ -3,11 +3,14 @@ import { useForm } from 'react-hook-form';
 import ButtonIcon from 'components/ButtonIcon';
 
 import './styles.css';
-import { getAuthData, requestBackendLogin, saveAuthData } from 'util/request';
-import { useState } from 'react';
+import { getTokenData, requestBackendLogin, saveAuthData } from 'util/request';
+import { useContext, useState } from 'react';
+import { AuthContext } from 'AuthContext';
 
 const Login = () => {
   const [hasError, setHasError] = useState(false);
+
+  const { setAuthContextData } = useContext(AuthContext);
 
   type FormData = {
     username: string;
@@ -26,10 +29,11 @@ const Login = () => {
     requestBackendLogin(formData)
       .then((response) => {
         saveAuthData(response.data);
-        const token = getAuthData().access_token;
-        console.log('token gerado : ' + token);
         setHasError(false);
-        console.log('sucesso', response);
+        setAuthContextData({
+          authenticated: true,
+          tokenData: getTokenData(),
+        });
         history.push('/admin');
       })
       .catch((error) => {
