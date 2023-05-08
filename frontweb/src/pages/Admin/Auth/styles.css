@@ -4,7 +4,7 @@
   padding: 20px;
 }
 
-.auth-baner-container {
+.auth-banner-container {
   display: none;
 }
 
@@ -28,47 +28,42 @@
   .auth-container {
     padding: 40px;
   }
-  .auth-baner-container {
+
+  .auth-banner-container {
     display: flex;
     flex-direction: column;
-  }
-  .auth-baner-container {
     margin-top: 40px;
     width: 500px;
   }
 
-  .auth-baner-container h1 {
+  .auth-banner-container h1 {
     font-size: 40px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    color: #263238;
     margin-bottom: 15px;
-
-    color: #263228;
   }
-
-  .auth-baner-container p {
+  .auth-banner-container p {
     font-size: 18px;
     letter-spacing: -0.015em;
     color: #9e9e9e;
   }
 
-  .auth-baner-container svg {
+  .auth-banner-container svg {
     width: 100%;
   }
 }
 
 @media (min-width: 1400px) {
-  .auth-baner-container {
+  .auth-banner-container {
     width: 650px;
   }
 
-  .auth-baner-container h1 {
+  .auth-banner-container h1 {
     font-size: 55px;
     margin-bottom: 25px;
   }
 
-  .auth-baner-container p {
+  .auth-banner-container p {
     font-size: 24px;
-    letter-spacing: -0.015em;
-    color: #9e9e9e;
   }
 }

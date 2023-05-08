@@ -1,21 +1,21 @@
 import { ReactComponent as ArrowIcon } from 'assets/images/arrow.svg';
 import axios from 'axios';
-import ProductPrice from 'components/Product Price';
-import { useEffect, useState } from 'react';
+import ProductPrice from 'components/ProductPrice';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Product } from 'types/product';
-import { BASE_URL } from 'util/request';
-import ProductDetailsLoader from './ProductDetailsLoader';
+import { BASE_URL } from 'util/requests';
 import ProductInfoLoader from './ProductInfoLoader';
+import ProductDetailsLoader from './ProductDetailsLoader';
 
 import './styles.css';
 
-type urlParams = {
+type UrlParams = {
   productId: string;
 };
 
 const ProductDetails = () => {
-  const { productId } = useParams<urlParams>();
+  const { productId } = useParams<UrlParams>();
 
   const [isLoading, setIsLoading] = useState(false);
   const [product, setProduct] = useState<Product>();
@@ -36,12 +36,11 @@ const ProductDetails = () => {
     <div className="product-details-container">
       <div className="base-card product-details-card">
         <Link to="/products">
-          <div className="goback-contianer">
+          <div className="goback-container">
             <ArrowIcon />
             <h2>VOLTAR</h2>
           </div>
         </Link>
-
         <div className="row">
           <div className="col-xl-6">
             {isLoading ? (
@@ -51,7 +50,6 @@ const ProductDetails = () => {
                 <div className="img-container">
                   <img src={product?.imgUrl} alt={product?.name} />
                 </div>
-
                 <div className="name-price-container">
                   <h1>{product?.name}</h1>
                   {product && <ProductPrice price={product?.price} />}

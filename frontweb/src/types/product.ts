@@ -1,11 +1,11 @@
-import { Categorie } from './categorie';
+import { Category } from "./category"
 
 export type Product = {
-  id: number,
-  name: string,
-  price: number,
-  imgUrl: string,
-  date: string,
-  description: string,
-  categories: Categorie[];
-};
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    imgUrl: string;
+    date: string;
+    categories: Category[];
+}

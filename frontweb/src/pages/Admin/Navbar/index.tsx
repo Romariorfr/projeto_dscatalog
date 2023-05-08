@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+import { hasAnyRoles } from 'util/auth';
 import './styles.css';
 
 const Navbar = () => {
@@ -5,20 +7,22 @@ const Navbar = () => {
     <nav className="admin-nav-container">
       <ul>
         <li>
-          <a href="/admin/products" className='admin-nav-item active'>
+          <NavLink to="/admin/products" className="admin-nav-item">
             <p>Produtos</p>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/admin/categories" className='admin-nav-item'>
+          <NavLink to="/admin/categories" className="admin-nav-item">
             <p>Categorias</p>
-          </a>
+          </NavLink>
         </li>
-        <li>
-          <a href="/admin/users" className='admin-nav-item'>
-            <p>Usuários</p> 
-          </a>
-        </li>
+        {hasAnyRoles(['ROLE_ADMIN']) && (
+          <li>
+            <NavLink to="/admin/users" className="admin-nav-item">
+              <p>Usuários</p>
+            </NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );

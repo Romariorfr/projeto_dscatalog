@@ -1,13 +1,16 @@
-import { AuthContext } from 'AuthContext';
 import './styles.css';
 import 'bootstrap/js/src/collapse.js';
-import { useContext, useEffect } from 'react';
 
 import { Link, NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 import history from 'util/history';
-import { getTokenData, isAuthenticated, removeAuthData } from 'util/request';
+import { useContext } from 'react';
+import { AuthContext } from 'AuthContext';
+import { getTokenData, isAuthenticated } from 'util/auth';
+import { removeAuthData } from 'util/storage';
 
 const Navbar = () => {
+
   const { authContextData, setAuthContextData } = useContext(AuthContext);
 
   useEffect(() => {
@@ -26,7 +29,9 @@ const Navbar = () => {
   const handleLogoutClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     removeAuthData();
-    setAuthContextData({ authenticated: false });
+    setAuthContextData({
+      authenticated: false,
+    });
     history.replace('/');
   };
 
@@ -36,7 +41,6 @@ const Navbar = () => {
         <Link to="/" className="nav-logo-text">
           <h4>DS Catalog</h4>
         </Link>
-
         <button
           className="navbar-toggler"
           type="button"
@@ -48,17 +52,22 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
         <div className="collapse navbar-collapse" id="dscatalog-navbar">
           <ul className="navbar-nav offset-md-2 main-menu">
             <li>
-              <NavLink to="/">HOME</NavLink>
+              <NavLink to="/" activeClassName="active" exact>
+                HOME
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/products">CATÁLOGO</NavLink>
+              <NavLink to="/products" activeClassName="active">
+                CATÁLOGO
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/admin">ADMIN</NavLink>
+              <NavLink to="/admin" activeClassName="active">
+                ADMIN
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -66,9 +75,7 @@ const Navbar = () => {
         <div className="nav-login-logout">
           {authContextData.authenticated ? (
             <>
-              <span className="nav-user-name">
-                {authContextData.tokenData?.user_name}
-              </span>
+              <span className="nav-username">{authContextData.tokenData?.user_name}</span>
               <a href="#logout" onClick={handleLogoutClick}>
                 LOGOUT
               </a>

@@ -1,9 +1,12 @@
 .main-nav {
-  min-height: 70px;
   padding-left: 40px;
+  min-height: 70px;
 }
 
-.nav-logo-text,
+.nav-logo-text {
+  color: #fff;
+}
+
 .nav-logo-text:hover {
   color: #fff;
 }
@@ -16,42 +19,42 @@
 }
 
 .main-menu a {
+  font-style: normal;
   color: rgba(255, 255, 255, 0.5);
+}
+
+.main-menu a.active {
+  font-weight: bold;
+  color: #fff;
 }
 
 .main-menu a:hover {
   color: #fff;
 }
 
-.main-menu a.active {
-  color: #fff;
-  font-weight: 700;
-}
-
-.nav-login-logout{
+.nav-login-logout {
   display: none;
 }
 
-.nav-user-name{
+.nav-username {
   display: none;
 }
 
-@media (min-width: 768px){
-  .nav-login-logout{
+@media (min-width: 768px) {
+  .nav-login-logout {
     display: unset;
     color: #fff;
     margin-right: 15px;
   }
 }
 
-@media (min-width: 992px){
-  .nav-login-logout{
+@media (min-width: 992px) {
+  .nav-login-logout {
     margin-right: 40px;
   }
 
-  .nav-user-name{
+  .nav-username {
     display: unset;
     margin-right: 20px;
   }
-
 }

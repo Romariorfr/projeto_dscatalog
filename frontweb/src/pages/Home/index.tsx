@@ -1,7 +1,8 @@
 import { ReactComponent as MainImage } from 'assets/images/main-image.svg';
-import './styles.css';
 import ButtonIcon from 'components/ButtonIcon';
 import { Link } from 'react-router-dom';
+
+import './styles.css';
 
 const Home = () => {
   return (
@@ -9,17 +10,15 @@ const Home = () => {
       <div className="base-card home-card">
         <div className="home-content-container">
           <div>
-            <h1>Conheça o Melhor catálogo de produtos!</h1>
+            <h1>Conheça o melhor catálogo de produtos</h1>
             <p>
-              {' '}
               Ajudaremos você a encontrar os melhores produtos disponíveis no
-              mercado
+              mercado.
             </p>
           </div>
-
           <div>
             <Link to="/products">
-              <ButtonIcon text="INICIE AGORA A SUA BUSCA" />
+              <ButtonIcon text="Inicie agora a sua busca" />
             </Link>
           </div>
         </div>

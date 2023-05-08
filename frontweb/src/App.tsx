@@ -1,7 +1,7 @@
-import './assets/styles/custom.scss';
-import './App.css'; 
+import 'assets/styles/custom.scss';
+import './App.css';
 
-import Rotas from 'Rotas';
+import Routes from 'Routes';
 import { useState } from 'react';
 import { AuthContext, AuthContextData } from 'AuthContext';
 
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <AuthContext.Provider value={{ authContextData, setAuthContextData }}>
-      <Rotas />
+      <Routes />
     </AuthContext.Provider>
   );
 }
