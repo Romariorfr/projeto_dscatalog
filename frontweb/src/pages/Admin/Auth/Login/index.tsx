@@ -1,13 +1,22 @@
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import ButtonIcon from 'components/ButtonIcon';
-
-import './styles.css';
 import { getTokenData, requestBackendLogin, saveAuthData } from 'util/request';
 import { useContext, useState } from 'react';
 import { AuthContext } from 'AuthContext';
 
+import ButtonIcon from 'components/ButtonIcon';
+
+import './styles.css';
+
+type LocationState = {
+  from: string;
+};
+
 const Login = () => {
+  const location = useLocation<LocationState>();
+
+  const {from} = location.state ||  {from: {pathname: '/admin'}};
+
   const [hasError, setHasError] = useState(false);
 
   const { setAuthContextData } = useContext(AuthContext);
@@ -34,7 +43,7 @@ const Login = () => {
           authenticated: true,
           tokenData: getTokenData(),
         });
-        history.push('/admin');
+        history.replace(from);
       })
       .catch((error) => {
         setHasError(true);
