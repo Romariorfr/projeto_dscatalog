@@ -3,8 +3,11 @@ import './styles.css';
 import { Product } from 'types/product';
 import { AxiosRequestConfig } from 'axios';
 import { requestBackend } from 'util/requests';
+import { useHistory } from 'react-router-dom';
 
 const Form = () => {
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
@@ -12,10 +15,17 @@ const Form = () => {
   } = useForm<Product>();
 
   const onSubmit = (formData: Product) => {
+    const data = {
+      ...formData,
+      imgUrl:
+        'https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/1-big.jpg',
+      categories: [{ id: 1, name: '' }],
+    };
+
     const config: AxiosRequestConfig = {
       method: 'POST',
       url: '/products',
-      data: formData,
+      data,
       withCredentials: true,
     };
     requestBackend(config)
@@ -25,6 +35,10 @@ const Form = () => {
       .catch((error) => {
         console.log('ERRO', error);
       });
+  };
+
+  const handleCancel = () => {
+    history.push('/admin/products');
   };
 
   return (
@@ -51,25 +65,48 @@ const Form = () => {
                   {errors.name?.message}
                 </div>
               </div>
+
               <div className="margin-bottom-30">
-                <input type="text" className="form-control base-input" />
-              </div>
-              <div className="product-crud-input">
-                <input type="text" className="form-control base-input" />
+                <input
+                  {...register('price', {
+                    required: 'Campo obrigatório',
+                  })}
+                  type="number"
+                  className={`form-control base-input ${
+                    errors.price ? 'is-invalid' : ''
+                  }`}
+                  placeholder="Preço"
+                  name="price"
+                />
+                <div className="invalid-feedback d-block">
+                  {errors.price?.message}
+                </div>
               </div>
             </div>
             <div className="col-lg-6">
               <div>
                 <textarea
                   rows={10}
-                  name=""
-                  className="form-control base-input h-auto"
+                  {...register('description', {
+                    required: 'Campo obrigatório',
+                  })}
+                  className={`form-control base-input h-auto ${
+                    errors.description ? 'is-invalid' : ''
+                  }`}
+                  placeholder="Descrição"
+                  name="description"
                 />
+                <div className="invalid-feedback d-block">
+                  {errors.description?.message}
+                </div>
               </div>
             </div>
           </div>
           <div className="product-crud-buttons-container">
-            <button className="btn btn-outline-danger product-crud-buttons ">
+            <button
+              className="btn btn-outline-danger product-crud-buttons "
+              onClick={handleCancel}
+            >
               CANCELAR
             </button>
             <button className="btn btn-outline-primary product-crud-buttons">

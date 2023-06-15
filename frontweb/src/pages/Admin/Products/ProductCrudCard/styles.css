@@ -7,6 +7,7 @@
   text-align: center;
   padding: 16px 0;
   border-bottom: 1px solid #e1e1e1;
+
 }
 
 .product-crud-card-top-container img {
@@ -81,6 +82,7 @@
   .product-crud-card-top-container{
     border-bottom: 0;
     border-right: 1px solid #e1e1e1;
+    width: 200px;
   }
 
   .product-crud-card{
