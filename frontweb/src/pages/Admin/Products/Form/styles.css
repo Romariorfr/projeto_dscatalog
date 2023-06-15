@@ -26,8 +26,29 @@
     justify-content: space-between;
 }
 
+.product-crud-buttons{
+    height: 50px;
+    border-radius: 10px;
+    width: 110px;
+    font-weight: bold;
+
+}
+
+@media(min-width: 576px){
+    .product-crud-buttons-container{
+        justify-content: flex-end
+    }
+
+    .product-crud-buttons{
+        margin-left: 30px;
+        width: 270px;
+    }
+
+}
+
 @media(min-width: 992px){
     .product-crud-inputs-left-container{
         margin: 0;
     }
 }
+
