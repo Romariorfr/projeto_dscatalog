@@ -4,19 +4,16 @@ import { Product } from 'types/product';
 import { AxiosRequestConfig } from 'axios';
 import { requestBackend } from 'util/requests';
 import { useHistory, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Select from 'react-select';
+import { Category } from 'types/category';
 
 type UrlParams = {
   productId: string;
 };
 
 const Form = () => {
-  const options = [
-    { value: 'chocolate', label: 'chocolate' },
-    { value: 'morango', label: 'morango' },
-    { value: 'vanila', label: 'vanila' },
-  ];
+  const [selectCategories, setSelectCategories] = useState<Category[]>([]);
 
   const history = useHistory();
   const { productId } = useParams<UrlParams>();
@@ -29,6 +26,12 @@ const Form = () => {
     formState: { errors },
     setValue,
   } = useForm<Product>();
+
+  useEffect(() => {
+    requestBackend({ url: '/categories' }).then((response) => {
+      setSelectCategories(response.data.content);
+    });
+  }, []);
 
   useEffect(() => {
     if (isEditing) {
@@ -98,9 +101,11 @@ const Form = () => {
 
               <div className="margin-bottom-30">
                 <Select
-                  options={options}
+                  options={selectCategories}
                   isMulti
                   classNamePrefix={'product-crud-select'}
+                  getOptionLabel={(category: Category)=> category.name }
+                  getOptionValue={(category: Category)=> String(category.id)}
                 />
               </div>
 
