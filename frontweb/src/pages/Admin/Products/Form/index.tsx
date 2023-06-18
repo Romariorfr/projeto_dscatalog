@@ -5,12 +5,19 @@ import { AxiosRequestConfig } from 'axios';
 import { requestBackend } from 'util/requests';
 import { useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import Select from 'react-select';
 
 type UrlParams = {
   productId: string;
 };
 
 const Form = () => {
+  const options = [
+    { value: 'chocolate', label: 'chocolate' },
+    { value: 'morango', label: 'morango' },
+    { value: 'vanila', label: 'vanila' },
+  ];
+
   const history = useHistory();
   const { productId } = useParams<UrlParams>();
 
@@ -87,6 +94,14 @@ const Form = () => {
                 <div className="invalid-feedback d-block">
                   {errors.name?.message}
                 </div>
+              </div>
+
+              <div className="margin-bottom-30">
+                <Select
+                  options={options}
+                  isMulti
+                  classNamePrefix={'product-crud-select'}
+                />
               </div>
 
               <div className="margin-bottom-30">
