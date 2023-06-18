@@ -15,7 +15,7 @@ type UrlParams = {
 };
 
 const ProductDetails = () => {
-  const { productId } = useParams<UrlParams>();
+  const { productId } = useParams<UrlParams>(); 
 
   const [isLoading, setIsLoading] = useState(false);
   const [product, setProduct] = useState<Product>();
