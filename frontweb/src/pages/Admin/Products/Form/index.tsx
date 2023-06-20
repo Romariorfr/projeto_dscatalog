@@ -7,6 +7,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { Category } from 'types/category';
+import CurrencyInput from 'react-currency-input-field';
 
 type UrlParams = {
   productId: string;
@@ -118,16 +119,21 @@ const Form = () => {
               </div>
 
               <div className="margin-bottom-30">
-                <input
-                  {...register('price', {
-                    required: 'Campo obrigatório',
-                  })}
-                  type="number"
-                  className={`form-control base-input ${
-                    errors.price ? 'is-invalid' : ''
-                  }`}
-                  placeholder="Preço"
+                <Controller
                   name="price"
+                  rules={{ required: 'Campo obrigatório' }}
+                  control={control}
+                  render={({ field }) => (
+                    <CurrencyInput
+                      placeholder="preço"
+                      className={`form-control base-input ${
+                        errors.price ? 'is-invalid' : ''
+                      }`}
+                      disableGroupSeparators={true}
+                      value={field.value}
+                      onValueChange={field.onChange}
+                    />
+                  )}
                 />
                 <div className="invalid-feedback d-block">
                   {errors.price?.message}
@@ -139,8 +145,7 @@ const Form = () => {
                   {...register('imgUrl', {
                     required: 'Campo obrigatorio',
                     pattern: {
-                      value:
-                      /^[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/,
+                      value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm,
                       message: 'Deve ser uma URL válida',
                     },
                   })}
