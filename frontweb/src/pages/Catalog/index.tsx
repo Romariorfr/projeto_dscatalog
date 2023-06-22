@@ -52,7 +52,7 @@ const Catalog = () => {
       </div>
 
       <div className="row">
-        <Pagination />
+        <Pagination pageCount={(page)? page.totalElements: 0} range={3} />
       </div>
     </div>
   );
