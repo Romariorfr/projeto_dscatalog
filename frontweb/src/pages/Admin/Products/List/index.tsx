@@ -2,7 +2,7 @@ import ProductCrudCard from 'pages/Admin/Products/ProductCrudCard';
 
 import './styles.css';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Product } from 'types/product';
 import { SpringPage } from 'types/vendor/spring';
 import { AxiosRequestConfig } from 'axios';
@@ -25,7 +25,7 @@ const List = () => {
     setControlComponentsData({ activePage: pageNumber });
   };
 
-  useEffect(() => {
+  const getProducts = useCallback(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/products',
@@ -40,7 +40,9 @@ const List = () => {
     });
   }, [controlComponentsData]);
 
-  const getProducts = () => {};
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
 
   return (
     <div className="product-crud-container">
@@ -56,7 +58,7 @@ const List = () => {
       <div className="row">
         {page?.content.map((product) => (
           <div key={product.id} className="col-sm-6 col-md-12">
-            <ProductCrudCard onDelete={() => {}} product={product} />
+            <ProductCrudCard onDelete={getProducts} product={product} />
           </div>
         ))}
       </div>
