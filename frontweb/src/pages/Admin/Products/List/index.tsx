@@ -54,7 +54,11 @@ const List = () => {
           </div>
         ))}
       </div>
-      <Pagination pageCount={page ? page.totalPages : 0} range={3} onChange={getProducts} />
+      <Pagination
+        pageCount={page ? page.totalPages : 0}
+        range={3}
+        onChange={getProducts}
+      />
     </div>
   );
 };
