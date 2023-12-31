@@ -38,7 +38,7 @@ const ProductFilter = () => {
             placeholder="Nome do produto"
             name="name"
           />
-          <button>
+          <button className="product-filter-search-icon">
             <SearchIcon />
           </button>
         </div>
@@ -51,15 +51,19 @@ const ProductFilter = () => {
                 <ReactSelect
                   {...field}
                   options={selectCategories}
+                  placeholder="Categorias"
                   isClearable
-                  classNamePrefix={'product-crud-select'}
+                  classNamePrefix={'product-filter-select'}
                   getOptionLabel={(category: Category) => category.name}
                   getOptionValue={(category: Category) => String(category.id)}
                 />
               )}
             />
           </div>
-          <button className="btn btn-outline-secondary">LIMPAR</button>
+          <button className="btn btn-outline-secondary">
+            <span>LIMPAR </span>
+            <span className="btn-product-filter-word">FILTRO</span>
+          </button>
         </div>
       </form>
     </div>
