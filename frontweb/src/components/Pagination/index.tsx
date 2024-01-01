@@ -4,14 +4,16 @@ import './styles.css';
 import ReactPaginate from 'react-paginate';
 
 type Props = {
+  forcePage?: number;
   pageCount: number;
   range: number;
   onChange?: (pageNumber: number) => void;
 };
 
-const Pagination = ({ pageCount, range, onChange }: Props) => {
+const Pagination = ({ pageCount, range, onChange, forcePage }: Props) => {
   return (
     <ReactPaginate
+      forcePage={forcePage}
       pageCount={pageCount}
       pageRangeDisplayed={range}
       marginPagesDisplayed={1}
@@ -22,10 +24,16 @@ const Pagination = ({ pageCount, range, onChange }: Props) => {
       nextClassName="arrow-next"
       activeLinkClassName="pagination-link-active"
       disabledClassName="arrow-inactive"
-
-      previousLabel={<div className='pagination-arrow-container'><ArrowIcon /></div>}
-      nextLabel={<div className='pagination-arrow-container'><ArrowIcon /></div>}
-
+      previousLabel={
+        <div className="pagination-arrow-container">
+          <ArrowIcon />
+        </div>
+      }
+      nextLabel={
+        <div className="pagination-arrow-container">
+          <ArrowIcon />
+        </div>
+      }
       onPageChange={(items) => (onChange ? onChange(items.selected) : {})}
     />
   );
