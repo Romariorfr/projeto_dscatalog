@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { Category } from 'types/category';
 import CurrencyInput from 'react-currency-input-field';
+import { toast } from 'react-toastify';
 
 type UrlParams = {
   productId: string;
@@ -57,9 +58,11 @@ const Form = () => {
     };
     requestBackend(config)
       .then((response) => {
+        toast.info('Produto salvo com sucesso!');
         history.push('/admin/products');
       })
       .catch((error) => {
+        toast.error('Erro ao salvar produto!');
         console.log('ERRO', error);
       });
   };
