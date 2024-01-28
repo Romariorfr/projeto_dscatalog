@@ -2,11 +2,10 @@ import { ReactComponent as SearchIcon } from 'assets/images/search-icon.svg';
 
 import './styles.css';
 import { Category } from 'types/category';
-import { Controller, set, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import ReactSelect from 'react-select';
 import { useEffect, useState } from 'react';
 import { requestBackend } from 'util/requests';
-import { on } from 'events';
 
 export type ProductFilterData = {
   name?: string;

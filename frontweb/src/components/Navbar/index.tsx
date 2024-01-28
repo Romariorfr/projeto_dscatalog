@@ -6,11 +6,11 @@ import { useEffect } from 'react';
 import history from 'util/history';
 import { useContext } from 'react';
 import { AuthContext } from 'AuthContext';
-import { getTokenData, isAuthenticated } from 'util/auth';
+import { isAuthenticated } from 'util/auth';
 import { removeAuthData } from 'util/storage';
+import { getTokenData } from 'util/token';
 
 const Navbar = () => {
-
   const { authContextData, setAuthContextData } = useContext(AuthContext);
 
   useEffect(() => {
@@ -75,7 +75,9 @@ const Navbar = () => {
         <div className="nav-login-logout">
           {authContextData.authenticated ? (
             <>
-              <span className="nav-username">{authContextData.tokenData?.user_name}</span>
+              <span className="nav-username">
+                {authContextData.tokenData?.user_name}
+              </span>
               <a href="#logout" onClick={handleLogoutClick}>
                 LOGOUT
               </a>
