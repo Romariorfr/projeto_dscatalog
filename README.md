@@ -1,13 +1,15 @@
-# API backend - DSCatalog
+<H1 align="center">🚀 DScatalog</h1>
+
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Romariorfr/dscatalog-devsuperior-aula/blob/master/LICENSE) 
 
-## Sobre o projeto:
+<H3 align="center">Um Projeto Full-Stack Web</H3>
 
-DScatalog é um projeto backend web contruido e aprimorado ao longo do bootcamp spring react 3.0, evento organizado pela [DevSuperior](https://devsuperior.com.br "Site da DevSuperior").
+<H4>DScatalog é um projeto full-stack web robusto, construído e aprimorado durante o Bootcamp Spring React 3.0, um evento organizado pela DevSuperior.
+Este projeto abrange a criação completa de um sistema CRUD (Create, Read, Update, Delete) para gerenciamento de produtos, categorias, usuários e funções.
+É uma excelente demonstração de habilidades em desenvolvimento web full-stack, com foco em Spring e React.</H4>
 
-O projeto consiste na criação completa de um crud (Create, Read, Update, Delete) de produtos e categorias, usuario e funções.
 
-## Modelo conceitual do projeto:
+## 📚 Modelo conceitual do projeto:
 
 ![Web 1](https://github.com/Romariorfr/dscatalog-devsuperior-aula/blob/master/backend/assets/modeloConceitual.jpg)
 
