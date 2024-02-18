@@ -1,4 +1,4 @@
-# dscatalog
+# API backend - DSCatalog
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Romariorfr/dscatalog-devsuperior-aula/blob/master/LICENSE) 
 
 ## Sobre o projeto:
