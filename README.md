@@ -9,6 +9,28 @@ Este projeto abrange a criação completa de um sistema CRUD (Create, Read, Upda
 É uma excelente demonstração de habilidades em desenvolvimento web full-stack, com foco em Spring e React.</H4>
 
 
+ Desktop                   |        
+:-------------------------:|
+![](https://github.com/Romariorfr/img-app/blob/master/dscatalog/Screenshot%20from%202024-02-18%2022-36-08.png?raw=true)
+
+![](https://github.com/Romariorfr/img-app/blob/master/dscatalog/Screenshot%20from%202024-02-18%2022-36-28.png?raw=true)
+
+![](https://github.com/Romariorfr/img-app/blob/master/dscatalog/Screenshot%20from%202024-02-18%2022-36-39.png?raw=true)
+
+![](https://github.com/Romariorfr/img-app/blob/master/dscatalog/Screenshot%20from%202024-02-18%2022-37-16.png?raw=true)
+
+|        Mobile         |       Mobile          |       Mobile          |       Mobile  
+|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/Romariorfr/img-app/blob/master/dscatalog/Screenshot%20from%202024-02-18%2022-38-36.png?raw=true)|![](https://github.com/Romariorfr/img-app/blob/master/dscatalog/Screenshot%20from%202024-02-18%2022-38-45.png?raw=true)|![](https://github.com/Romariorfr/img-app/blob/master/dscatalog/Screenshot%20from%202024-02-18%2022-38-53.png?raw=true)|![](https://github.com/Romariorfr/img-app/blob/master/dscatalog/Screenshot%20from%202024-02-18%2022-39-04.png?raw=true)
+
+
+
+
+
+
+
+
+
 ## 📚 Modelo conceitual do projeto:
 
 ![Web 1](https://github.com/Romariorfr/dscatalog-devsuperior-aula/blob/master/backend/assets/modeloConceitual.jpg)
