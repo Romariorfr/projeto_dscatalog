@@ -46,6 +46,7 @@ dados de auditoria e paginação de dados. Aprender também a trabalhar com a fe
 - PostgreSQL
 - Maven
 - Postman
+- JUnit
 
 ### Front end
 - Visual Code
@@ -58,6 +59,7 @@ dados de auditoria e paginação de dados. Aprender também a trabalhar com a fe
 - Expo
 - Bootstrap
 - Axios
+- Jest
 
 ## :astronaut: Author 
 
